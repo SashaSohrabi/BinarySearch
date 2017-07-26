@@ -2,15 +2,14 @@ package com.binarySearch.java;
 
 public class BinarySearch {
 
-
-	public boolean binarySearch(int[] data, int key) {
+	public int binarySearch(int[] data, int key) {
 		int low = 0;
 		int high = data.length - 1;
 
 		while (high >= low) {
 			int middle = (low + high) / 2;
 			if (data[middle] == key) {
-				return true;
+				return data[middle];
 			}
 			if (data[low] > data[high]) {
 
@@ -31,9 +30,10 @@ public class BinarySearch {
 			} else {
 				if (key < data[middle]) high = middle - 1;
 				else if (key > data[middle]) low = middle + 1;
+				else return data[middle];
 			}
 		}
 
-		return false;
+		return -1;
 	}
 }
